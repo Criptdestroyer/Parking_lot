@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+args=${1:-"iteractive"}
+
+if [ $args = "iteractive" ]; then
+    java -cp target/Parking_lot-1.0-SNAPSHOT.jar com.gojek.App 123456
+    echo "iteractive"
+else
+    if [ -s $args ];then
+        java -cp target/Parking_lot-1.0-SNAPSHOT.jar com.gojek.App 123456
+        echo $args
+    else
+        echo "invalid filename"
+        exit
+    fi
+fi
