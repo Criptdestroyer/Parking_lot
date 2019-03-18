@@ -6,8 +6,8 @@ package com.gojek;
 
 public class Parking_lot
 {
-    private int MAX_SIZE = 0;
     private Car slot[];
+    private int MAX_SIZE = 0;
 
     public void createParkingLot(String size)
     {
@@ -18,8 +18,21 @@ public class Parking_lot
 
     public void parkCar(String number, String colour)
     {
-        System.out.println(number);
-        System.out.println(colour);
+        int i = 0;
+        boolean setSlot = false;
+        while(i < MAX_SIZE && !setSlot)
+        {
+            if(slot[i] == null){
+                Car car = new Car(number,colour);
+                slot[i] = car;
+                setSlot = true;
+                System.out.println("Allocated slot number: "+(i+1));
+            }else if(i == MAX_SIZE-1){
+                System.out.println("Sorry, parking lot is full");
+            }
+            i++;
+        }
+        
     }
 
     public void leavePark(String slot)
