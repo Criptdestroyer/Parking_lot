@@ -1,7 +1,7 @@
 package com.gojek;
 
 /*
- * author : Ahmad Emir Alfatah
+ * @author Ahmad Emir Alfatah
  */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -13,10 +13,12 @@ import java.io.IOException;
  {
     private String argument;
     private BufferedReader data;
+    private Parking_lot parking_lot;
 
     public Input(String argument)
     {
         this.argument = argument;
+        parking_lot = new Parking_lot();
         parser();
     }
 
@@ -65,12 +67,44 @@ import java.io.IOException;
             while((command = data.readLine()) != null)
             {
                 System.out.println(command);
+                commandMethod(command);
             }
         }catch(IOException e){
             System.out.println(e);
             e.printStackTrace();
         }
         
+    }
+
+    public void commandMethod(String command)
+    {
+        String splitCommand[] = command.split(" ");
+        switch(splitCommand[0])
+        {
+            case "create_parking_lot":
+                parking_lot.createParkingLot(splitCommand[1]);
+                break;
+            case "park":
+                parking_lot.parkCar(splitCommand[1],splitCommand[2]);
+                break;
+            case "leave":
+                parking_lot.leavePark(splitCommand[1]);
+                break;
+            case "status":
+                parking_lot.status();
+                break;
+            case "registration_numbers_for_cars_with_colour":
+                parking_lot.regNumWcol(splitCommand[1]);
+                break;
+            case "slot_numbers_for_cars_with_colour" :
+                parking_lot.slotNumWcol(splitCommand[1]);
+                break;  
+            case "slot_number_for_registration_number" :
+                parking_lot.slotNumWnum(splitCommand[1]);
+                break;   
+            default:
+                System.out.println("invalid input");        
+        }
     }
 
     

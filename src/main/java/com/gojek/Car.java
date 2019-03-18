@@ -1,7 +1,7 @@
 package com.gojek;
 
 /*
- * author : Ahmad Emir Alfatah
+ * @author Ahmad Emir Alfatah
  */
 
  public class Car
@@ -15,5 +15,5 @@ package com.gojek;
          this.colour = colour;
      }
 
-     
+
  }
