@@ -11,7 +11,9 @@ public class Parking_lot
 
     public void createParkingLot(String size)
     {
-        System.out.println(size);
+        MAX_SIZE = Integer.parseInt(size);
+        slot = new Car[MAX_SIZE];
+        System.out.println("Create a parking lot with "+size+" slots");
     }
 
     public void parkCar(String number, String colour)
