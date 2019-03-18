@@ -13,6 +13,7 @@ import java.io.IOException;
  {
     private String argument;
     private BufferedReader data;
+
     public Input(String argument)
     {
         this.argument = argument;
@@ -30,8 +31,24 @@ import java.io.IOException;
 
     public void iteractiveParse()
     {
-        data = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("in building");
+        try{
+            data = new BufferedReader(new InputStreamReader(System.in));
+            boolean next = true;
+            while(next)
+            {
+                String command = data.readLine();
+                if(command.equals("exit")){
+                    System.out.println("exit the program");
+                    next = false;
+                }else{
+                    System.out.println(command);
+                }
+            }
+        }catch(IOException e){
+            System.out.println(e);
+            e.printStackTrace();
+        }
+        
     }
 
     public void fileParse(String filename)
@@ -43,11 +60,11 @@ import java.io.IOException;
             e.printStackTrace();
         }
         
-        String args;
+        String command;
         try{
-            while((args = data.readLine()) != null)
+            while((command = data.readLine()) != null)
             {
-                System.out.println(args);
+                System.out.println(command);
             }
         }catch(IOException e){
             System.out.println(e);
