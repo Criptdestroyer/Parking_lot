@@ -35,9 +35,15 @@ public class Parking_lot
         
     }
 
-    public void leavePark(String slot)
+    public void leavePark(String numSlot)
     {
-        System.out.println(slot);
+        int num = Integer.parseInt(numSlot)-1;
+        if(num >= 0 && num < MAX_SIZE){
+            slot[num] = null;
+            System.out.println("Slot number "+numSlot+" is free");
+        }else{
+            System.out.println("There is no slot with number "+num);
+        }
     }
 
     public void status()
