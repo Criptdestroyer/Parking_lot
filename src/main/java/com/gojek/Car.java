@@ -15,5 +15,15 @@ package com.gojek;
          this.colour = colour;
      }
 
+     public String getRegNumber()
+     {
+         return regNumber;
+     }
+
+     public String getColour()
+     {
+         return colour;
+     }
+
 
  }

@@ -48,7 +48,14 @@ public class Parking_lot
 
     public void status()
     {
-        System.out.println("test size");
+        System.out.println("Slot No.\tRegistration No\t\tColour");
+        for(int i=0; i<MAX_SIZE; i++)
+        {
+            if(slot[i]!=null){
+                Car carInfo = slot[i];
+                System.out.println((i+1)+"\t\t"+ carInfo.getRegNumber() +"\t\t"+ carInfo.getColour());
+            }
+        }
     }
 
     public void regNumWcol(String colour)
