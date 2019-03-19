@@ -1,4 +1,7 @@
 package com.gojek;
+/*
+ * @author Ahmad Emir Alfatah
+ */
 
 import org.junit.After;
 import org.junit.Before;
@@ -6,36 +9,36 @@ import org.junit.Test;
 import java.io.FileNotFoundException;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import static org.junit.Assert.*;
 
-/**
- * Unit test for simple App.
- */
 public class InputTest 
 {
-    // Input input = new Input("file_inputs.txt");
-    // private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    // String expected = "create_parking_lot 6\npark KA-01-HH-1234 White\npark KA-01-HH-9999 White\npark KA-01-BB-0001 Black\npark KA-01-HH-7777 Red\npark KA-01-HH-2701 Blue\npark KA-01-HH-3141 Black\nleave 4\nstatus\npark KA-01-P-333 White\npark DL-12-AA-9999 White\nregistration_numbers_for_cars_with_colour White\nslot_numbers_for_cars_with_colour White\nslot_number_for_registration_number KA-01-HH-3141\nslot_number_for_registration_number MH-04-AY-1111";
-    
-    // @Before
-    // public void setUpStreams()
-    // {
-    //     System.setOut(new PrintStream(outContent));
-    // }
+//    @Test
+//    public void testInputFile()
+//    {
+//        Input input = new Input("file_inputs.txt");
+//        String expectedOutput = "Create a parking lot with 6 slots\n"
+//                                 +"Allocated slot number: 1\n"
+//                                 +"Allocated slot number: 2\n"
+//                                 +"Allocated slot number: 3\n"
+//                                 +"Allocated slot number: 4\n"
+//                                 +"Allocated slot number: 5\n"
+//                                 +"Allocated slot number: 6\n"
+//                                 +"Slot number 4 is free\n"
+//                                 +"Slot No.        Registration No         Colour\n"
+//                                 +"1               KA-01-HH-1234           White\n"
+//                                 +"2               KA-01-HH-9999           White\n"
+//                                 +"3               KA-01-BB-0001           Black\n"
+//                                 +"5               KA-01-HH-2701           Blue\n"
+//                                 +"6               KA-01-HH-3141           Black\n"
+//                                 +"Allocated slot number: 4\n"
+//                                 +"Sorry, parking lot is full\n"
+//                                 +"KA-01-HH-1234, KA-01-HH-9999, KA-01-P-333\n"
+//                                 +"1, 2, 4\n"
+//                                 +"6\n"
+//                                 +"Not Found\n";
 
-    // @After
-    // public void cleanUpStreams()
-    // {
-    //     System.setOut(null);
-    // }
-    
-    // @Test
-    // public void parseFileInput() throws Exception
-    // {
-    //     input.fileParse("file_inputs.txt");
-    //     assertEquals(expected, outContent.toString().trim().replace(" ", ""));
-    //     //  input.fileParse("file_inputs.txt");
-    //     // assertEquals("Invalidinput\nSorry,parkinglotisnotcreated", outContent.toString().trim().replace(" ", ""));
-    // } 
+//         // assertEquals(expectedOutput,input.fileParse("file_inputs.txt"));
+
+//    }
 }
