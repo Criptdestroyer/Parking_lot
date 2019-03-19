@@ -60,18 +60,40 @@ public class Parking_lot
 
     public void regNumWcol(String colour)
     {
+        boolean firstString = true;
         for(int i=0; i<MAX_SIZE; i++)
         {
             Car carInfo = slot[i];
             if(carInfo.getColour().equals(colour)){
-                System.out.println(carInfo.getRegNumber());
+                if(firstString){
+                    System.out.print(carInfo.getRegNumber());
+                    firstString = false;
+                }else{
+                    System.out.print(", "+carInfo.getRegNumber());
+                }
+                
             }
         }
+        System.out.println();
     }
 
     public void slotNumWcol(String colour)
     {
-        System.out.println(colour);
+        boolean firstString = true;
+        for(int i=0; i<MAX_SIZE; i++)
+        {
+            Car carInfo = slot[i];
+            if(carInfo.getColour().equals(colour)){
+                if(firstString){
+                    System.out.print(i+1);
+                    firstString = false;
+                }else{
+                    System.out.print(", "+(i+1));
+                }
+                
+            }
+        }
+        System.out.println();
     }
 
     public void slotNumWnum(String number)
