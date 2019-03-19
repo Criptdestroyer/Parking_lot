@@ -60,7 +60,13 @@ public class Parking_lot
 
     public void regNumWcol(String colour)
     {
-        System.out.println(colour);
+        for(int i=0; i<MAX_SIZE; i++)
+        {
+            Car carInfo = slot[i];
+            if(carInfo.getColour().equals(colour)){
+                System.out.println(carInfo.getRegNumber());
+            }
+        }
     }
 
     public void slotNumWcol(String colour)
