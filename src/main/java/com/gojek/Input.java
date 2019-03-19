@@ -43,11 +43,11 @@ import java.io.IOException;
                     System.out.println("exit the program");
                     next = false;
                 }else{
-                    System.out.println(command);
+                    commandMethod(command);
                 }
             }
         }catch(IOException e){
-            System.out.println(e);
+            System.out.println("Wrong Command input or wrong parameter");
             e.printStackTrace();
         }
         
@@ -66,11 +66,10 @@ import java.io.IOException;
         try{
             while((command = data.readLine()) != null)
             {
-                System.out.println(command);
                 commandMethod(command);
             }
         }catch(IOException e){
-            System.out.println(e);
+            System.out.println("Wrong Command input or wrong parameter");
             e.printStackTrace();
         }
         

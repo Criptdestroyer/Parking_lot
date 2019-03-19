@@ -18,6 +18,10 @@ public class Parking_lot
 
     public void parkCar(String number, String colour)
     {
+        if(MAX_SIZE==0){
+            System.out.println("Parking lot size must to set first");
+            return;
+        }
         int i = 0;
         boolean setSlot = false;
         while(i < MAX_SIZE && !setSlot)
@@ -65,15 +69,16 @@ public class Parking_lot
 
         for(int i=0; i<MAX_SIZE; i++)
         {
-            Car carInfo = slot[i];
-            if(carInfo.getColour().equals(colour)){
-                if(firstString){
-                    temp+=carInfo.getRegNumber();
-                    firstString = false;
-                }else{
-                    temp+=", "+carInfo.getRegNumber();
+            if(slot[i]!=null){
+                Car carInfo = slot[i];
+                if(carInfo.getColour().equals(colour)){
+                    if(firstString){
+                        temp+=carInfo.getRegNumber();
+                        firstString = false;
+                    }else{
+                        temp+=", "+carInfo.getRegNumber();
+                    }   
                 }
-                
             }
         }
         if(temp.length()==0){
@@ -89,13 +94,15 @@ public class Parking_lot
         String temp = "";
         for(int i=0; i<MAX_SIZE; i++)
         {
-            Car carInfo = slot[i];
-            if(carInfo.getColour().equals(colour)){
-                if(firstString){
-                    temp+= (i+1);
-                    firstString = false;
-                }else{
-                    temp+=", "+(i+1);
+            if(slot[i]!=null){
+                Car carInfo = slot[i];
+                if(carInfo.getColour().equals(colour)){
+                    if(firstString){
+                        temp+= (i+1);
+                        firstString = false;
+                    }else{
+                        temp+=", "+(i+1);
+                    }
                 }
             }
         }
@@ -112,13 +119,15 @@ public class Parking_lot
         String temp = "";
         for(int i=0; i<MAX_SIZE; i++)
         {
-            Car carInfo = slot[i];
-            if(carInfo.getRegNumber().equals(number)){
-                if(firstString){
-                    temp+= (i+1);
-                    firstString = false;
-                }else{
-                    temp+=", "+(i+1);
+            if(slot[i]!=null){
+                Car carInfo = slot[i];
+                if(carInfo.getRegNumber().equals(number)){
+                    if(firstString){
+                        temp+= (i+1);
+                        firstString = false;
+                    }else{
+                        temp+=", "+(i+1);
+                    }
                 }
             }
         }
