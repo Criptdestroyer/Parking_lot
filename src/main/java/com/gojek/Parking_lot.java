@@ -3,16 +3,19 @@ package com.gojek;
 /*
  * @author Ahmad Emir Alfatah
  */
-
+import java.util.ArrayList;
 public class Parking_lot
 {
-    private Car slot[];
+    private ArrayList<Car> slot = new ArrayList<>();
     private int MAX_SIZE = 0;
 
     public void createParkingLot(String size)
     {
         MAX_SIZE = Integer.parseInt(size);
-        slot = new Car[MAX_SIZE];
+        for(int i=0; i<MAX_SIZE; i++)
+        {
+            slot.add(null);
+        }
         System.out.println("Create a parking lot with "+size+" slots");
     }
 
@@ -26,9 +29,9 @@ public class Parking_lot
         boolean setSlot = false;
         while(i < MAX_SIZE && !setSlot)
         {
-            if(slot[i] == null){
+            if(slot.get(i) == null){
                 Car car = new Car(number,colour);
-                slot[i] = car;
+                slot.set(i,car);
                 setSlot = true;
                 System.out.println("Allocated slot number: "+(i+1));
             }else if(i == MAX_SIZE-1){
@@ -43,7 +46,7 @@ public class Parking_lot
     {
         int num = Integer.parseInt(numSlot)-1;
         if(num >= 0 && num < MAX_SIZE){
-            slot[num] = null;
+            slot.set(num,null);
             System.out.println("Slot number "+numSlot+" is free");
         }else{
             System.out.println("There is no slot with number "+num);
@@ -55,8 +58,8 @@ public class Parking_lot
         System.out.println("Slot No.\tRegistration No\t\tColour");
         for(int i=0; i<MAX_SIZE; i++)
         {
-            if(slot[i]!=null){
-                Car carInfo = slot[i];
+            if(slot.get(i)!=null){
+                Car carInfo = slot.get(i);
                 System.out.println((i+1)+"\t\t"+ carInfo.getRegNumber() +"\t\t"+ carInfo.getColour());
             }
         }
@@ -69,8 +72,8 @@ public class Parking_lot
 
         for(int i=0; i<MAX_SIZE; i++)
         {
-            if(slot[i]!=null){
-                Car carInfo = slot[i];
+            if(slot.get(i)!=null){
+                Car carInfo = slot.get(i);
                 if(carInfo.getColour().equals(colour)){
                     if(firstString){
                         temp+=carInfo.getRegNumber();
@@ -94,8 +97,8 @@ public class Parking_lot
         String temp = "";
         for(int i=0; i<MAX_SIZE; i++)
         {
-            if(slot[i]!=null){
-                Car carInfo = slot[i];
+            if(slot.get(i)!=null){
+                Car carInfo = slot.get(i);
                 if(carInfo.getColour().equals(colour)){
                     if(firstString){
                         temp+= (i+1);
@@ -119,8 +122,8 @@ public class Parking_lot
         String temp = "";
         for(int i=0; i<MAX_SIZE; i++)
         {
-            if(slot[i]!=null){
-                Car carInfo = slot[i];
+            if(slot.get(i)!=null){
+                Car carInfo = slot.get(i);
                 if(carInfo.getRegNumber().equals(number)){
                     if(firstString){
                         temp+= (i+1);

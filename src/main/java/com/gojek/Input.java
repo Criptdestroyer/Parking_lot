@@ -1,5 +1,4 @@
 package com.gojek;
-
 /*
  * @author Ahmad Emir Alfatah
  */
@@ -50,7 +49,6 @@ import java.io.IOException;
             System.out.println("Wrong Command input or wrong parameter");
             e.printStackTrace();
         }
-        
     }
 
     public void fileParse(String filename)
