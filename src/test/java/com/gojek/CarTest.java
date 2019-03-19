@@ -11,6 +11,21 @@ import static org.junit.Assert.*;
 public class CarTest
 {
     @Test
+    public void testConst()
+    {
+        //declare object car
+        Car car = new Car("B 1010 EE","Black");
+
+        //expected output
+        String expectedNumber = "B 1010 EE"; 
+        String expectedColour = "Black";
+
+        //test
+        assertEquals(expectedNumber,car.getRegNumber());
+        assertEquals(expectedColour,car.getColour());
+    }
+
+    @Test
     public void testGetRegNumber()
     {
         //declare object car
