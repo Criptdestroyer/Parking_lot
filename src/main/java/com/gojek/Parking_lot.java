@@ -11,11 +11,12 @@ public class Parking_lot
 
     public void createParkingLot(String size)
     {
-        MAX_SIZE = Integer.parseInt(size);
-        for(int i=0; i<MAX_SIZE; i++)
+        int temp = Integer.parseInt(size);
+        for(int i=MAX_SIZE; i<temp; i++)
         {
             slot.add(null);
         }
+        MAX_SIZE=temp;
         System.out.println("Create a parking lot with "+size+" slots");
     }
 
