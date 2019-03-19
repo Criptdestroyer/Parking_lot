@@ -22,4 +22,17 @@ public class CarTest
         //test
         assertEquals(expected,car.getRegNumber());
     }
+
+    @Test
+    public void testGetColour()
+    {
+        //declare object car
+        Car car = new Car("BG 1010 KK","Red");
+
+        //expected output
+        String expected = "Red";
+
+        //test
+        assertEquals(expected,car.getColour());
+    }
 }
