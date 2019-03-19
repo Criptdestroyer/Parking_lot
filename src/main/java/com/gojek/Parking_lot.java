@@ -61,44 +61,73 @@ public class Parking_lot
     public void regNumWcol(String colour)
     {
         boolean firstString = true;
+        String temp = "";
+
         for(int i=0; i<MAX_SIZE; i++)
         {
             Car carInfo = slot[i];
             if(carInfo.getColour().equals(colour)){
                 if(firstString){
-                    System.out.print(carInfo.getRegNumber());
+                    temp+=carInfo.getRegNumber();
                     firstString = false;
                 }else{
-                    System.out.print(", "+carInfo.getRegNumber());
+                    temp+=", "+carInfo.getRegNumber();
                 }
                 
             }
         }
-        System.out.println();
+        if(temp.length()==0){
+            System.out.println("Not Found");
+        }else{
+            System.out.println(temp);
+        }
     }
 
     public void slotNumWcol(String colour)
     {
         boolean firstString = true;
+        String temp = "";
         for(int i=0; i<MAX_SIZE; i++)
         {
             Car carInfo = slot[i];
             if(carInfo.getColour().equals(colour)){
                 if(firstString){
-                    System.out.print(i+1);
+                    temp+= (i+1);
                     firstString = false;
                 }else{
-                    System.out.print(", "+(i+1));
+                    temp+=", "+(i+1);
                 }
-                
             }
         }
-        System.out.println();
+        if(temp.length()==0){
+            System.out.println("Not Found");
+        }else{
+            System.out.println(temp);
+        }
     }
 
     public void slotNumWnum(String number)
     {
-        System.out.println(number);
+        boolean firstString = true;
+        String temp = "";
+        for(int i=0; i<MAX_SIZE; i++)
+        {
+            Car carInfo = slot[i];
+            if(carInfo.getRegNumber().equals(number)){
+                if(firstString){
+                    temp+= (i+1);
+                    firstString = false;
+                }else{
+                    temp+=", "+(i+1);
+                }
+            }
+        }
+        if(temp.length()==0){
+            System.out.println("Not Found");
+        }else{
+            System.out.println(temp);
+        }
+        
     }
 
 }
