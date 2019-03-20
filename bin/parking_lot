@@ -2,11 +2,11 @@
 args=${1:-"iteractive"}
 
 if [ $args = "iteractive" ]; then
-    java -cp target/Parking_lot-1.0-SNAPSHOT.jar com.gojek.App $args
+    java -jar target/Parking_lot-1.0-SNAPSHOT.jar $args
     
 else
     if [ -s $args ];then
-        java -cp target/Parking_lot-1.0-SNAPSHOT.jar com.gojek.App $args
+        java -jar target/Parking_lot-1.0-SNAPSHOT.jar $args
         
     else
         echo "invalid filename"

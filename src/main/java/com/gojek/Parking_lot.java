@@ -17,13 +17,13 @@ public class Parking_lot
             slot.add(null);
         }
         MAX_SIZE=temp;
-        System.out.println("Create a parking lot with "+size+" slots");
+        System.out.print("Created a parking lot with "+size+" slots\n");
     }
 
     public void parkCar(String number, String colour)
     {
         if(MAX_SIZE==0){
-            System.out.println("Parking lot size must to set first");
+            System.out.print("Parking lot size must to set first\n");
             return;
         }
         int i = 0;
@@ -34,9 +34,9 @@ public class Parking_lot
                 Car car = new Car(number,colour);
                 slot.set(i,car);
                 setSlot = true;
-                System.out.println("Allocated slot number: "+(i+1));
+                System.out.print("Allocated slot number: "+(i+1)+"\n");
             }else if(i == MAX_SIZE-1){
-                System.out.println("Sorry, parking lot is full");
+                System.out.print("Sorry, parking lot is full\n");
             }
             i++;
         }
@@ -48,20 +48,20 @@ public class Parking_lot
         int num = Integer.parseInt(numSlot)-1;
         if(num >= 0 && num < MAX_SIZE){
             slot.set(num,null);
-            System.out.println("Slot number "+numSlot+" is free");
+            System.out.print("Slot number "+numSlot+" is free\n");
         }else{
-            System.out.println("There is no slot with number "+num);
+            System.out.print("There is no slot with number "+numSlot+"\n");
         }
     }
 
     public void status()
     {
-        System.out.println("Slot No.\tRegistration No\t\tColour");
+        System.out.print("Slot No.\tRegistration No\t\tColour\n");
         for(int i=0; i<MAX_SIZE; i++)
         {
             if(slot.get(i)!=null){
                 Car carInfo = slot.get(i);
-                System.out.println((i+1)+"\t\t"+ carInfo.getRegNumber() +"\t\t"+ carInfo.getColour());
+                System.out.print((i+1)+"\t\t"+ carInfo.getRegNumber() +"\t\t"+ carInfo.getColour()+"\n");
             }
         }
     }
@@ -86,9 +86,9 @@ public class Parking_lot
             }
         }
         if(temp.length()==0){
-            System.out.println("Not Found");
+            System.out.print("Not Found\n");
         }else{
-            System.out.println(temp);
+            System.out.print(temp+"\n");
         }
     }
 
@@ -111,9 +111,9 @@ public class Parking_lot
             }
         }
         if(temp.length()==0){
-            System.out.println("Not Found");
+            System.out.print("Not Found\n");
         }else{
-            System.out.println(temp);
+            System.out.print(temp+"\n");
         }
     }
 
@@ -136,9 +136,9 @@ public class Parking_lot
             }
         }
         if(temp.length()==0){
-            System.out.println("Not Found");
+            System.out.print("Not Found\n");
         }else{
-            System.out.println(temp);
+            System.out.print(temp+"\n");
         }
         
     }
