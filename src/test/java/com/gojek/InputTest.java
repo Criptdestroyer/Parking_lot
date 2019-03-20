@@ -29,6 +29,19 @@ public class InputTest
     }
 
     @Test
+    public void testGetArgument()
+    {
+        //declare object input
+        Input input = new Input("file_inputs.txt");
+
+        //expected output
+        String expectedArg = "file_inputs.txt";
+
+        //test
+        assertEquals(expectedArg,input.getArgument());
+    }
+
+    @Test
     public void testInputFile()
     {
         Input input = new Input("file_inputs.txt");

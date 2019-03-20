@@ -21,6 +21,11 @@ import java.io.IOException;
         parser();
     }
 
+    public String getArgument()
+    {
+        return argument;
+    }
+
     public void parser() 
     {
         if(argument.equals("iteractive")){
