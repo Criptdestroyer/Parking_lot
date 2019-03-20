@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 args=${1:-"iteractive"}
-
 if [ $args = "iteractive" ]; then
-    java -jar target/Parking_lot-1.0-SNAPSHOT.jar $args
-    
+    if [ $0 = "./bin/parking_lot" ];then
+        java -jar target/Parking_lot-1.0-SNAPSHOT.jar $args
+    else
+        java -jar ../target/Parking_lot-1.0-SNAPSHOT.jar $args
+    fi
 else
     if [ -s $args ];then
-        java -jar target/Parking_lot-1.0-SNAPSHOT.jar $args
-        
+        if [ $0 = "./bin/parking_lot" ];then
+            java -jar target/Parking_lot-1.0-SNAPSHOT.jar $args
+        else
+            java -jar ../target/Parking_lot-1.0-SNAPSHOT.jar $args
+        fi
     else
         echo "invalid filename"
         exit

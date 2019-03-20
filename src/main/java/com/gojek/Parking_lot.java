@@ -17,13 +17,13 @@ public class Parking_lot
             slot.add(null);
         }
         MAX_SIZE=temp;
-        System.out.print("Created a parking lot with "+size+" slots\n");
+        System.out.println("Created a parking lot with "+size+" slots");
     }
 
     public void parkCar(String number, String colour)
     {
         if(MAX_SIZE==0){
-            System.out.print("Parking lot size must to set first\n");
+            System.out.println("Parking lot size must to set first");
             return;
         }
         int i = 0;
@@ -34,9 +34,9 @@ public class Parking_lot
                 Car car = new Car(number,colour);
                 slot.set(i,car);
                 setSlot = true;
-                System.out.print("Allocated slot number: "+(i+1)+"\n");
+                System.out.println("Allocated slot number: "+(i+1));
             }else if(i == MAX_SIZE-1){
-                System.out.print("Sorry, parking lot is full\n");
+                System.out.println("Sorry, parking lot is full");
             }
             i++;
         }
@@ -48,20 +48,20 @@ public class Parking_lot
         int num = Integer.parseInt(numSlot)-1;
         if(num >= 0 && num < MAX_SIZE){
             slot.set(num,null);
-            System.out.print("Slot number "+numSlot+" is free\n");
+            System.out.println("Slot number "+numSlot+" is free");
         }else{
-            System.out.print("There is no slot with number "+numSlot+"\n");
+            System.out.println("There is no slot with number "+numSlot);
         }
     }
 
     public void status()
     {
-        System.out.print("Slot No.\tRegistration No\t\tColour\n");
+        System.out.println("Slot No.    Registration No    Colour");
         for(int i=0; i<MAX_SIZE; i++)
         {
             if(slot.get(i)!=null){
                 Car carInfo = slot.get(i);
-                System.out.print((i+1)+"\t\t"+ carInfo.getRegNumber() +"\t\t"+ carInfo.getColour()+"\n");
+                System.out.println((i+1)+"           "+ carInfo.getRegNumber() +"      "+ carInfo.getColour());
             }
         }
     }
@@ -86,9 +86,9 @@ public class Parking_lot
             }
         }
         if(temp.length()==0){
-            System.out.print("Not Found\n");
+            System.out.println("Not Found");
         }else{
-            System.out.print(temp+"\n");
+            System.out.println(temp);
         }
     }
 
@@ -111,9 +111,9 @@ public class Parking_lot
             }
         }
         if(temp.length()==0){
-            System.out.print("Not Found\n");
+            System.out.println("Not found");
         }else{
-            System.out.print(temp+"\n");
+            System.out.println(temp);
         }
     }
 
@@ -136,9 +136,9 @@ public class Parking_lot
             }
         }
         if(temp.length()==0){
-            System.out.print("Not Found\n");
+            System.out.println("Not found");
         }else{
-            System.out.print(temp+"\n");
+            System.out.println(temp);
         }
         
     }
