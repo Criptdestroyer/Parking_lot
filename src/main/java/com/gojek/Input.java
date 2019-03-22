@@ -18,7 +18,6 @@ import java.io.IOException;
     {
         this.argument = argument;
         parking_lot = new Parking_lot();
-        parser();
     }
 
     public String getArgument()
