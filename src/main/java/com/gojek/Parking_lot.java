@@ -116,7 +116,7 @@ public class Parking_lot
             }
         }
         if(temp.length()==0){
-            System.out.println("Not Found");
+            System.out.println("Not found");
         }else{
             System.out.println(temp);
         }
@@ -124,7 +124,8 @@ public class Parking_lot
 
     public void slotNumWcol(String colour)
     {
-        if(cekParkingLot()){
+        if(cekParkingLot())
+        {
             return;
         }
         
@@ -134,8 +135,10 @@ public class Parking_lot
         {
             if(slot.get(i)!=null){
                 Car carInfo = slot.get(i);
-                if(carInfo.getColour().equals(colour)){
-                    if(firstString){
+                if(carInfo.getColour().equals(colour))
+                {
+                    if(firstString)
+                    {
                         temp+= (i+1);
                         firstString = false;
                     }else{
@@ -144,7 +147,8 @@ public class Parking_lot
                 }
             }
         }
-        if(temp.length()==0){
+        if(temp.length()==0)
+        {
             System.out.println("Not found");
         }else{
             System.out.println(temp);

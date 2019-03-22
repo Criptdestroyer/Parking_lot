@@ -138,7 +138,58 @@ import static org.junit.Assert.*;
         parking_lot.status();
 
         assertEquals(expectedOutput, output.toString());
+    }
 
+    @Test
+    public void testCekRegNumWcol()
+    {
+        //expected
+        String expectedOutput = "Parking lot size must to set first\n"
+                                +"Created a parking lot with 2 slots\n"
+                                +"Allocated slot number: 1\n"
+                                +"Allocated slot number: 2\n"
+                                +"Not found\n"
+                                +"B 1120 AC, B 1121 AC\n";
+
+        //test if parking lost size is not set
+        parking_lot.regNumWcol("Black");
+
+        //test if not found
+        parking_lot.createParkingLot("2");
+        parking_lot.parkCar("B 1120 AC","Gold");
+        parking_lot.parkCar("B 1121 AC","Gold");
+        parking_lot.regNumWcol("Black");
+
+        //test input colour
+        parking_lot.regNumWcol("Gold");
+
+        assertEquals(expectedOutput, output.toString());
+    }
+
+    @Test
+    public void testSlotNumWcol()
+    {
+        //expected
+        String expectedOutput = "Parking lot size must to set first\n"
+                                +"Created a parking lot with 2 slots\n"
+                                +"Allocated slot number: 1\n"
+                                +"Allocated slot number: 2\n"
+                                +"Not found\n"
+                                +"1, 2\n";
+
+        //test if parking lost size is not set
+        parking_lot.slotNumWcol("black");
+
+        //test if not found
+        parking_lot.createParkingLot("2");
+        parking_lot.parkCar("B 1120 AC","Gold");
+        parking_lot.parkCar("B 1121 AC","Gold");
+        parking_lot.slotNumWcol("black");
+
+        //test input colour
+        parking_lot.slotNumWcol("Gold");
+
+        assertEquals(expectedOutput, output.toString());
     }
 
 
