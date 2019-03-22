@@ -56,6 +56,56 @@ import static org.junit.Assert.*;
         }
 
         assertEquals(expectedTest,cek);
+    }
+
+    @Test
+    public void testParkCar()
+    {
+        //call function
+        parking_lot.parkCar("B 1120 AC","Gold");
+
+        //expected
+        String expectedSizeNotSet = "Parking lot size must to set first\n";
+        Car expectedSlot[] = {new Car("B 1120 AC","Gold"), null};
+        boolean expectedTest = false;
+        String expectedOutput = "Allocated slot number: 1\n"; 
+        String expectedOutputFull = "Sorry, parking lot is full\n"; 
+
+        //test if MAX_SIZE is not set
+        assertEquals(expectedSizeNotSet,output.toString());
+        parking_lot.createParkingLot("2");
+        output.reset();
+        
+        //test park car
+        parking_lot.parkCar("B 1120 AC","Gold");
+        assertEquals(expectedOutput,output.toString());
+        parking_lot.parkCar("B 1121 AC","Red");
+        output.reset();
+
+        //test if slot is full
+        parking_lot.parkCar("B 1122 AC","Black");
+        assertEquals(expectedOutputFull,output.toString());
+        parking_lot.leavePark("2");
+
+        //test slot
+        boolean cek = false;
+        for(int i=0; i < expectedSlot.length; i++)
+        {
+            if((expectedSlot[i] != null && parking_lot.getSlot().get(i)!=null) || (expectedSlot[i] == null && parking_lot.getSlot().get(i) == null)){
+                Car car1 = expectedSlot[i];
+                Car car2 = (Car) parking_lot.getSlot().get(i);
+                if(car1 != null && car2 != null){
+                    if(car1.getRegNumber() != car2.getRegNumber() || car1.getColour() != car2.getColour() ){
+                        cek = true;
+                    }
+                }
+            }else {
+                cek = true;
+            }
+        }
+
+        assertEquals(expectedTest,cek);
+        
 
     }
  }
