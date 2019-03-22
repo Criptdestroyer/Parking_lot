@@ -9,6 +9,16 @@ public class Parking_lot
     private ArrayList<Car> slot = new ArrayList<>();
     private int MAX_SIZE = 0;
 
+    public int getMaxSize()
+    {
+        return MAX_SIZE;
+    }
+
+    public ArrayList getSlot()
+    {
+        return slot;
+    }
+
     public void createParkingLot(String size)
     {
         int temp = Integer.parseInt(size);

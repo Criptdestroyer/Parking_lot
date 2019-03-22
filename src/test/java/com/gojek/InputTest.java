@@ -44,7 +44,11 @@ public class InputTest
     @Test
     public void testInputFile()
     {
+        //declare object input
         Input input = new Input("file_inputs.txt");
+        input.parser();
+
+        //expected output
         String expectedOutput = "Created a parking lot with 6 slots\n"
                                 +"Allocated slot number: 1\n"
                                 +"Allocated slot number: 2\n"
@@ -65,8 +69,17 @@ public class InputTest
                                 +"1, 2, 4\n"
                                 +"6\n"
                                 +"Not found\n";
-        input.fileParse("file_inputs.txt");
-        assertEquals(expectedOutput,output.toString());
 
+        //test
+        assertEquals(expectedOutput,output.toString());
+    }
+
+    @Test
+    public void testInteractive()
+    {
+        // Input input = new Input("iteractive");
+        // input.parser();
+
+        
     }
 }
