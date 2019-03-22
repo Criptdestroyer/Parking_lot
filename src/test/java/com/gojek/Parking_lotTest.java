@@ -115,6 +115,12 @@ import static org.junit.Assert.*;
         assertEquals(expectedTest,cekSlot(expectedSlot));
     }
 
+    public void testStatus()
+    {
+        //expected
+        String expectedOutput = "        All Slot is free";
+    }
+
 
     public boolean cekSlot(Car expectedSlot[])
     {
@@ -134,5 +140,5 @@ import static org.junit.Assert.*;
             }
         }
         return cek;
-    } 
+    }
  }

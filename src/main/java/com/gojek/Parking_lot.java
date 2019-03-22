@@ -32,8 +32,7 @@ public class Parking_lot
 
     public void parkCar(String number, String colour)
     {
-        if(MAX_SIZE==0){
-            System.out.println("Parking lot size must to set first");
+        if(cekParkingLot()){
             return;
         }
         int i = 0;
@@ -55,8 +54,7 @@ public class Parking_lot
 
     public void leavePark(String numSlot)
     {
-        if(MAX_SIZE==0){
-            System.out.println("Parking lot size must to set first");
+        if(cekParkingLot()){
             return;
         }
 
@@ -75,18 +73,31 @@ public class Parking_lot
 
     public void status()
     {
+        if(cekParkingLot()){
+            return;
+        }
+
         System.out.println("Slot No.    Registration No    Colour");
+        boolean empty = true;
         for(int i=0; i<MAX_SIZE; i++)
         {
             if(slot.get(i)!=null){
+                empty = false;
                 Car carInfo = slot.get(i);
                 System.out.println((i+1)+"           "+ carInfo.getRegNumber() +"      "+ carInfo.getColour());
             }
+        }
+        if(empty){
+            System.out.println("        All Slot is free");
         }
     }
 
     public void regNumWcol(String colour)
     {
+        if(cekParkingLot()){
+            return;
+        }
+
         boolean firstString = true;
         String temp = "";
 
@@ -113,6 +124,10 @@ public class Parking_lot
 
     public void slotNumWcol(String colour)
     {
+        if(cekParkingLot()){
+            return;
+        }
+        
         boolean firstString = true;
         String temp = "";
         for(int i=0; i<MAX_SIZE; i++)
@@ -138,6 +153,10 @@ public class Parking_lot
 
     public void slotNumWnum(String number)
     {
+        if(cekParkingLot()){
+            return;
+        }
+
         boolean firstString = true;
         String temp = "";
         for(int i=0; i<MAX_SIZE; i++)
@@ -161,5 +180,14 @@ public class Parking_lot
         }
         
     }
-
+    
+    public boolean cekParkingLot()
+    {
+        boolean cek = false;
+        if(MAX_SIZE==0){
+            System.out.println("Parking lot size must to set first");
+            return true;
+        }
+        return cek;
+    }
 }
