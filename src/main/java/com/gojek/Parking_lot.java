@@ -88,7 +88,7 @@ public class Parking_lot
             }
         }
         if(empty){
-            System.out.println("        All Slot is free");
+            System.out.println("           All Slot is free");
         }
     }
 
@@ -180,7 +180,7 @@ public class Parking_lot
         }
         
     }
-    
+
     public boolean cekParkingLot()
     {
         boolean cek = false;

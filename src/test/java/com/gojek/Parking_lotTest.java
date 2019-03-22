@@ -118,7 +118,27 @@ import static org.junit.Assert.*;
     public void testStatus()
     {
         //expected
-        String expectedOutput = "        All Slot is free";
+        String expectedOutput = "Parking lot size must to set first\n"
+                                +"Created a parking lot with 1 slots\n"
+                                +"Slot No.    Registration No    Colour\n"
+                                +"          All Slot is free\n"
+                                +"Allocated slot number: 1\n"
+                                +"Slot No.    Registration No    Colour\n"
+                                +"1           B 1120 AC          Gold\n";
+
+        //test if Parking lot size is not set
+        parking_lot.status();
+
+        //test if all slot is free
+        parking_lot.createParkingLot("1");
+        parking_lot.status();
+
+        //test status
+        parking_lot.parkCar("B 1120 AC","Gold");
+        parking_lot.status();
+
+        assertEquals(expectedOutput, output.toString());
+
     }
 
 
