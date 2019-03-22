@@ -105,7 +105,11 @@ import static org.junit.Assert.*;
         }
 
         assertEquals(expectedTest,cek);
-        
+    }
 
+    @Test
+    public void testLeavePark()
+    {
+        
     }
  }

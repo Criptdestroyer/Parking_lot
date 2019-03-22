@@ -55,10 +55,19 @@ public class Parking_lot
 
     public void leavePark(String numSlot)
     {
+        if(MAX_SIZE==0){
+            System.out.println("Parking lot size must to set first");
+            return;
+        }
+
         int num = Integer.parseInt(numSlot)-1;
         if(num >= 0 && num < MAX_SIZE){
-            slot.set(num,null);
-            System.out.println("Slot number "+numSlot+" is free");
+            if(slot.get(num)==null){
+                System.out.println("There is no car in slot "+num);
+            }else{
+                slot.set(num,null);
+                System.out.println("Slot number "+numSlot+" is free");
+            }
         }else{
             System.out.println("There is no slot with number "+numSlot);
         }
