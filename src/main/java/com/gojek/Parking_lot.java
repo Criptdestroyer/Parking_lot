@@ -63,7 +63,7 @@ public class Parking_lot
         int num = Integer.parseInt(numSlot)-1;
         if(num >= 0 && num < MAX_SIZE){
             if(slot.get(num)==null){
-                System.out.println("There is no car in slot "+num);
+                System.out.println("There is no car in slot "+numSlot);
             }else{
                 slot.set(num,null);
                 System.out.println("Slot number "+numSlot+" is free");

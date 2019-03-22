@@ -32,9 +32,6 @@ import static org.junit.Assert.*;
     @Test
     public void createParkingLotTest()
     {
-        //call function
-        parking_lot.createParkingLot("2");
-
         //expected
         int expectedMaxSize = 2;
         int expectedSlotSize = 2;
@@ -42,28 +39,19 @@ import static org.junit.Assert.*;
         boolean expectedTest = false;
         String expectedOutput = "Created a parking lot with 2 slots\n";
 
+        //call function
+        parking_lot.createParkingLot("2");
+
         //test
         assertEquals(expectedMaxSize, parking_lot.getMaxSize());
         assertEquals(expectedSlotSize, parking_lot.getSlot().size());
         assertEquals(expectedOutput,output.toString());
-        
-        boolean cek = false;
-        for(int i=0; i < expectedSlot.length; i++)
-        {
-            if(expectedSlot[i] != parking_lot.getSlot().get(i)){
-                cek = true;
-            }
-        }
-
-        assertEquals(expectedTest,cek);
+        assertEquals(expectedTest,cekSlot(expectedSlot));
     }
 
     @Test
     public void testParkCar()
     {
-        //call function
-        parking_lot.parkCar("B 1120 AC","Gold");
-
         //expected
         String expectedSizeNotSet = "Parking lot size must to set first\n";
         Car expectedSlot[] = {new Car("B 1120 AC","Gold"), null};
@@ -71,7 +59,10 @@ import static org.junit.Assert.*;
         String expectedOutput = "Allocated slot number: 1\n"; 
         String expectedOutputFull = "Sorry, parking lot is full\n"; 
 
-        //test if MAX_SIZE is not set
+        //call function
+        parking_lot.parkCar("B 1120 AC","Gold");
+
+        //test if parking lot is not set
         assertEquals(expectedSizeNotSet,output.toString());
         parking_lot.createParkingLot("2");
         output.reset();
@@ -87,7 +78,46 @@ import static org.junit.Assert.*;
         assertEquals(expectedOutputFull,output.toString());
         parking_lot.leavePark("2");
 
-        //test slot
+        //cek slot
+        assertEquals(expectedTest,cekSlot(expectedSlot));
+    }
+
+    @Test
+    public void testLeavePark()
+    {
+        //expected
+        String expectedOutput = "Parking lot size must to set first\n"
+                                +"Created a parking lot with 1 slots\n"
+                                +"There is no car in slot 1\n"
+                                +"Allocated slot number: 1\n"
+                                +"Slot number 1 is free\n"
+                                +"There is no slot with number 2\n";
+        Car expectedSlot[] = {null};
+        boolean expectedTest = false;
+
+        //test if parking lot is not set
+        parking_lot.leavePark("1");
+
+        //test if there is no car in input slot 
+        parking_lot.createParkingLot("1");
+        parking_lot.leavePark("1");
+
+        //test if slot is free
+        parking_lot.parkCar("B 1120 AC","Gold");
+        parking_lot.leavePark("1");
+
+        //test if there is no leave number in slot
+        parking_lot.leavePark("2");
+
+        assertEquals(expectedOutput,output.toString());
+
+        //cek slot
+        assertEquals(expectedTest,cekSlot(expectedSlot));
+    }
+
+
+    public boolean cekSlot(Car expectedSlot[])
+    {
         boolean cek = false;
         for(int i=0; i < expectedSlot.length; i++)
         {
@@ -103,13 +133,6 @@ import static org.junit.Assert.*;
                 cek = true;
             }
         }
-
-        assertEquals(expectedTest,cek);
-    }
-
-    @Test
-    public void testLeavePark()
-    {
-        
-    }
+        return cek;
+    } 
  }
