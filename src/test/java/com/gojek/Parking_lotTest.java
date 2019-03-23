@@ -127,15 +127,15 @@ import static org.junit.Assert.*;
                                 +"1           B 1120 AC          Gold\n";
 
         //test if Parking lot size is not set
-        parking_lot.status();
+        parking_lot.cekStatus();
 
         //test if all slot is free
         parking_lot.createParkingLot("1");
-        parking_lot.status();
+        parking_lot.cekStatus();
 
         //test status
         parking_lot.parkCar("B 1120 AC","Gold");
-        parking_lot.status();
+        parking_lot.cekStatus();
 
         assertEquals(expectedOutput, output.toString());
     }
@@ -152,16 +152,16 @@ import static org.junit.Assert.*;
                                 +"B 1120 AC, B 1121 AC\n";
 
         //test if parking lost size is not set
-        parking_lot.regNumWcol("Black");
+        parking_lot.cekRegistrationNumberWithColour("Black");
 
         //test if not found
         parking_lot.createParkingLot("2");
         parking_lot.parkCar("B 1120 AC","Gold");
         parking_lot.parkCar("B 1121 AC","Gold");
-        parking_lot.regNumWcol("Black");
+        parking_lot.cekRegistrationNumberWithColour("Black");
 
         //test input colour
-        parking_lot.regNumWcol("Gold");
+        parking_lot.cekRegistrationNumberWithColour("Gold");
 
         assertEquals(expectedOutput, output.toString());
     }
@@ -178,16 +178,16 @@ import static org.junit.Assert.*;
                                 +"1, 2\n";
 
         //test if parking lost size is not set
-        parking_lot.slotNumWcol("black");
+        parking_lot.cekSlotNumberWithColour("black");
 
         //test if not found
         parking_lot.createParkingLot("2");
         parking_lot.parkCar("B 1120 AC","Gold");
         parking_lot.parkCar("B 1121 AC","Gold");
-        parking_lot.slotNumWcol("black");
+        parking_lot.cekSlotNumberWithColour("black");
 
         //test input colour
-        parking_lot.slotNumWcol("Gold");
+        parking_lot.cekSlotNumberWithColour("Gold");
 
         assertEquals(expectedOutput, output.toString());
     }

@@ -71,7 +71,7 @@ public class Parking_lot
         }
     }
 
-    public void status()
+    public void cekStatus()
     {
         if(cekParkingLot()){
             return;
@@ -92,7 +92,7 @@ public class Parking_lot
         }
     }
 
-    public void regNumWcol(String colour)
+    public void cekRegistrationNumberWithColour(String colour)
     {
         if(cekParkingLot()){
             return;
@@ -122,7 +122,7 @@ public class Parking_lot
         }
     }
 
-    public void slotNumWcol(String colour)
+    public void cekSlotNumberWithColour(String colour)
     {
         if(cekParkingLot())
         {

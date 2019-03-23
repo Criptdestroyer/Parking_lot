@@ -1,7 +1,9 @@
 package com.gojek;
+
 /*
  * @author Ahmad Emir Alfatah
  */
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.FileNotFoundException;
@@ -29,7 +31,8 @@ import java.io.IOException;
     {
         if(argument.equals("iteractive")){
             iteractiveParse();
-        }else{
+        }
+        else{
             fileParse(argument);
         }
     }
@@ -45,11 +48,13 @@ import java.io.IOException;
                 if(command.equals("exit")){
                     System.out.println("exit the program");
                     next = false;
-                }else{
+                }
+                else{
                     commandMethod(command);
                 }
             }
-        }catch(IOException e){
+        }
+        catch(IOException e){
             System.out.println("Wrong Command input or wrong parameter");
             e.printStackTrace();
         }
@@ -59,8 +64,9 @@ import java.io.IOException;
     {
         try{
             data = new BufferedReader(new FileReader(filename));
-        }catch(FileNotFoundException e){
-            System.out.println(e);
+        }
+        catch(FileNotFoundException e){
+            System.out.println("File not found");
             e.printStackTrace();
         }
         
@@ -70,11 +76,11 @@ import java.io.IOException;
             {
                 commandMethod(command);
             }
-        }catch(IOException e){
+        }
+        catch(IOException e){
             System.out.println("Wrong Command input or wrong parameter");
             e.printStackTrace();
         }
-        
     }
 
     public void commandMethod(String command)
@@ -92,13 +98,13 @@ import java.io.IOException;
                 parking_lot.leavePark(splitCommand[1]);
                 break;
             case "status":
-                parking_lot.status();
+                parking_lot.cekStatus();
                 break;
             case "registration_numbers_for_cars_with_colour":
-                parking_lot.regNumWcol(splitCommand[1]);
+                parking_lot.cekRegistrationNumberWithColour(splitCommand[1]);
                 break;
             case "slot_numbers_for_cars_with_colour" :
-                parking_lot.slotNumWcol(splitCommand[1]);
+                parking_lot.cekSlotNumberWithColour(splitCommand[1]);
                 break;  
             case "slot_number_for_registration_number" :
                 parking_lot.slotNumWnum(splitCommand[1]);
@@ -107,6 +113,4 @@ import java.io.IOException;
                 System.out.println("invalid input");        
         }
     }
-
-    
  }
