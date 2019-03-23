@@ -192,6 +192,43 @@ import static org.junit.Assert.*;
         assertEquals(expectedOutput, output.toString());
     }
 
+    @Test
+    public void testSlotNumWnum()
+    {
+        //expected
+        String expectedOutput = "Parking lot size must to set first\n"
+                                +"Created a parking lot with 2 slots\n"
+                                +"Allocated slot number: 1\n"
+                                +"Allocated slot number: 2\n"
+                                +"Not found\n"
+                                +"2\n";
+
+        //test if parking lost size is not set
+        parking_lot.slotNumWnum("B 1123 AC");
+
+        //test if not found
+        parking_lot.createParkingLot("2");
+        parking_lot.parkCar("B 1120 AC","Gold");
+        parking_lot.parkCar("B 1121 AC","Gold");
+        parking_lot.slotNumWnum("B 1123 AC");
+
+        //test input number
+        parking_lot.slotNumWnum("B 1121 AC");
+
+        assertEquals(expectedOutput, output.toString());
+
+    }
+
+    @Test
+    public void testCekParkingLot()
+    {
+        //expected
+        boolean cek = true;
+
+        //test
+        assertEquals(cek, parking_lot.cekParkingLot());
+    }
+
 
     public boolean cekSlot(Car expectedSlot[])
     {

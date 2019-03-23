@@ -157,7 +157,8 @@ public class Parking_lot
 
     public void slotNumWnum(String number)
     {
-        if(cekParkingLot()){
+        if(cekParkingLot())
+        {
             return;
         }
 
@@ -165,10 +166,13 @@ public class Parking_lot
         String temp = "";
         for(int i=0; i<MAX_SIZE; i++)
         {
-            if(slot.get(i)!=null){
+            if(slot.get(i)!=null)
+            {
                 Car carInfo = slot.get(i);
-                if(carInfo.getRegNumber().equals(number)){
-                    if(firstString){
+                if(carInfo.getRegNumber().equals(number))
+                {
+                    if(firstString)
+                    {
                         temp+= (i+1);
                         firstString = false;
                     }else{
