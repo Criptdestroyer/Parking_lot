@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
  {
     private ByteArrayOutputStream output = new ByteArrayOutputStream();
     private Parking_lot parking_lot = new Parking_lot();
+
     @Before
     public void setStream()
     {
@@ -53,30 +54,29 @@ import static org.junit.Assert.*;
     public void testParkCar()
     {
         //expected
-        String expectedSizeNotSet = "Parking lot size must to set first\n";
         Car expectedSlot[] = {new Car("B 1120 AC","Gold"), null};
         boolean expectedTest = false;
-        String expectedOutput = "Allocated slot number: 1\n"; 
-        String expectedOutputFull = "Sorry, parking lot is full\n"; 
+        String expectedOutput = "Parking lot size must to set first\n"
+                                +"Created a parking lot with 2 slots\n"
+                                +"Allocated slot number: 1\n"
+                                +"Allocated slot number: 2\n"
+                                +"Sorry, parking lot is full\n"
+                                +"Slot number 2 is free\n"; 
 
         //call function
         parking_lot.parkCar("B 1120 AC","Gold");
 
         //test if parking lot is not set
-        assertEquals(expectedSizeNotSet,output.toString());
         parking_lot.createParkingLot("2");
-        output.reset();
         
         //test park car
         parking_lot.parkCar("B 1120 AC","Gold");
-        assertEquals(expectedOutput,output.toString());
         parking_lot.parkCar("B 1121 AC","Red");
-        output.reset();
 
         //test if slot is full
         parking_lot.parkCar("B 1122 AC","Black");
-        assertEquals(expectedOutputFull,output.toString());
         parking_lot.leavePark("2");
+        assertEquals(expectedOutput,output.toString());
 
         //cek slot
         assertEquals(expectedTest,cekSlot(expectedSlot));
@@ -204,16 +204,16 @@ import static org.junit.Assert.*;
                                 +"2\n";
 
         //test if parking lost size is not set
-        parking_lot.slotNumWnum("B 1123 AC");
+        parking_lot.cekSlotNumberWithRegistrationNumber("B 1123 AC");
 
         //test if not found
         parking_lot.createParkingLot("2");
         parking_lot.parkCar("B 1120 AC","Gold");
         parking_lot.parkCar("B 1121 AC","Gold");
-        parking_lot.slotNumWnum("B 1123 AC");
+        parking_lot.cekSlotNumberWithRegistrationNumber("B 1123 AC");
 
         //test input number
-        parking_lot.slotNumWnum("B 1121 AC");
+        parking_lot.cekSlotNumberWithRegistrationNumber("B 1121 AC");
 
         assertEquals(expectedOutput, output.toString());
 
@@ -243,7 +243,8 @@ import static org.junit.Assert.*;
                         cek = true;
                     }
                 }
-            }else {
+            }
+            else {
                 cek = true;
             }
         }

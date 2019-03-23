@@ -50,7 +50,7 @@ import java.io.IOException;
                     next = false;
                 }
                 else{
-                    commandMethod(command);
+                    runCommand(command);
                 }
             }
         }
@@ -74,7 +74,7 @@ import java.io.IOException;
         try{
             while((command = data.readLine()) != null)
             {
-                commandMethod(command);
+                runCommand(command);
             }
         }
         catch(IOException e){
@@ -83,7 +83,7 @@ import java.io.IOException;
         }
     }
 
-    public void commandMethod(String command)
+    public void runCommand(String command)
     {
         String splitCommand[] = command.split(" ");
         switch(splitCommand[0])
@@ -107,7 +107,7 @@ import java.io.IOException;
                 parking_lot.cekSlotNumberWithColour(splitCommand[1]);
                 break;  
             case "slot_number_for_registration_number" :
-                parking_lot.slotNumWnum(splitCommand[1]);
+                parking_lot.cekSlotNumberWithRegistrationNumber(splitCommand[1]);
                 break;   
             default:
                 System.out.println("invalid input");        

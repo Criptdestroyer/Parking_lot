@@ -3,7 +3,9 @@ package com.gojek;
 /*
  * @author Ahmad Emir Alfatah
  */
+
 import java.util.ArrayList;
+
 public class Parking_lot
 {
     private ArrayList<Car> slot = new ArrayList<>();
@@ -44,7 +46,8 @@ public class Parking_lot
                 slot.set(i,car);
                 setSlot = true;
                 System.out.println("Allocated slot number: "+(i+1));
-            }else if(i == MAX_SIZE-1){
+            }
+            else if(i == MAX_SIZE-1){
                 System.out.println("Sorry, parking lot is full");
             }
             i++;
@@ -62,11 +65,13 @@ public class Parking_lot
         if(num >= 0 && num < MAX_SIZE){
             if(slot.get(num)==null){
                 System.out.println("There is no car in slot "+numSlot);
-            }else{
+            }
+            else{
                 slot.set(num,null);
                 System.out.println("Slot number "+numSlot+" is free");
             }
-        }else{
+        }
+        else{
             System.out.println("There is no slot with number "+numSlot);
         }
     }
@@ -109,15 +114,18 @@ public class Parking_lot
                     if(firstString){
                         temp+=carInfo.getRegNumber();
                         firstString = false;
-                    }else{
+                    }
+                    else{
                         temp+=", "+carInfo.getRegNumber();
                     }   
                 }
             }
         }
+
         if(temp.length()==0){
             System.out.println("Not found");
-        }else{
+        }
+        else{
             System.out.println(temp);
         }
     }
@@ -135,47 +143,12 @@ public class Parking_lot
         {
             if(slot.get(i)!=null){
                 Car carInfo = slot.get(i);
-                if(carInfo.getColour().equals(colour))
-                {
-                    if(firstString)
-                    {
+                if(carInfo.getColour().equals(colour)){
+                    if(firstString){
                         temp+= (i+1);
                         firstString = false;
-                    }else{
-                        temp+=", "+(i+1);
                     }
-                }
-            }
-        }
-        if(temp.length()==0)
-        {
-            System.out.println("Not found");
-        }else{
-            System.out.println(temp);
-        }
-    }
-
-    public void slotNumWnum(String number)
-    {
-        if(cekParkingLot())
-        {
-            return;
-        }
-
-        boolean firstString = true;
-        String temp = "";
-        for(int i=0; i<MAX_SIZE; i++)
-        {
-            if(slot.get(i)!=null)
-            {
-                Car carInfo = slot.get(i);
-                if(carInfo.getRegNumber().equals(number))
-                {
-                    if(firstString)
-                    {
-                        temp+= (i+1);
-                        firstString = false;
-                    }else{
+                    else{
                         temp+=", "+(i+1);
                     }
                 }
@@ -183,7 +156,40 @@ public class Parking_lot
         }
         if(temp.length()==0){
             System.out.println("Not found");
-        }else{
+        }
+        else{
+            System.out.println(temp);
+        }
+    }
+
+    public void cekSlotNumberWithRegistrationNumber(String number)
+    {
+        if(cekParkingLot()){
+            return;
+        }
+
+        boolean firstString = true;
+        String temp = "";
+        for(int i=0; i<MAX_SIZE; i++)
+        {
+            if(slot.get(i)!=null){
+                Car carInfo = slot.get(i);
+                if(carInfo.getRegNumber().equals(number)){
+                    if(firstString){
+                        temp+= (i+1);
+                        firstString = false;
+                    }
+                    else{
+                        temp+=", "+(i+1);
+                    }
+                }
+            }
+        }
+        
+        if(temp.length()==0){
+            System.out.println("Not found");
+        }
+        else{
             System.out.println(temp);
         }
         

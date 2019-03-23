@@ -78,8 +78,6 @@ public class InputTest
     @Test
     public void testInteractive()
     {
-        
-
         //expected
         String expectedOutput = "Created a parking lot with 5 slots\n"
                                 +"Allocated slot number: 1\n"

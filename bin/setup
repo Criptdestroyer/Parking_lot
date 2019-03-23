@@ -7,3 +7,4 @@
 # should Just Work.
 
 mvn clean package
+./bin/run_functional_tests
