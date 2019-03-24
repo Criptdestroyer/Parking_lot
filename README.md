@@ -10,25 +10,21 @@ This is my solution for Parking Lot program assignment (<a>Parking Lot v.1.4.2.p
 
 ## Bin directory
 In Parking_lot root directory has a bin directory for setup, testing and run the program
-1. ```./bin/setup```
-    ./bin/setup is a executable script for install dependencies and compile the code and then run ruby unit test suite
-2. ```./bin/run_functional_tests```
-    ./bin/run_functional_tests is a executable script for run ruby unit test suite
+1. ```./bin/setup``` is a executable script for install dependencies and compile the code and then run ruby unit test suite
+2. ```./bin/run_functional_tests``` is a executable script for run ruby unit test suite
 3. ```./bin/parking_lot```
         or
-    ```./bin/parking_lot [filename]```
-    ./bin/parking_lot or ./bin/parking_lot [filename] is a executable script for runs the program and takes an input file as an argument
+    ```./bin/parking_lot [filename]``` is a executable script for runs the program and takes an input file as an argument
 
 ## Usage
-
-### Build
+#### Build
 ```./bin/setup```
-
-### Run Ruby functional specs
-    ```./bin/run_functional_tests```
-    
-### Run Program
-    File input mode: ```./bin/parking_lot file_inputs.txt```
-    Interactive mode: ```./bin/parking_lot```
+#### Run Ruby functional specs
+```./bin/run_functional_tests```
+#### Run Program
+File input mode:
+```./bin/parking_lot file_inputs.txt```
+Interactive mode:
+```./bin/parking_lot```
 
 If executable script not run please input ```command chmod +x [script file]``` in terminal. Then run again
