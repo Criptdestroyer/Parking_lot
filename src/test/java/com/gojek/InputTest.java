@@ -17,6 +17,7 @@ public class InputTest
 {
     private ByteArrayOutputStream output = new ByteArrayOutputStream();
     private ByteArrayInputStream testIn;
+
     @Before
     public void setStream()
     {
@@ -120,6 +121,7 @@ public class InputTest
 
         Input input = new Input("iteractive");
         input.iteractiveParse();
+        
         assertEquals(expectedOutput,output.toString());
     }
 

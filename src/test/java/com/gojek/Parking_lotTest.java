@@ -41,14 +41,16 @@ import static org.junit.Assert.*;
         String expectedOutput = "Created a parking lot with 1 slots\n"
                                 +"number size must larger than MAX_SIZE\n";
 
-        //call function
+        //test create
         parking_lot.createParkingLot("1");
-
-        //test
         assertEquals(expectedMaxSize, parking_lot.getMaxSize());
         assertEquals(expectedSlotSize, parking_lot.getSlot().size());
+
+        //test if create size less than MAX_SIZE
         parking_lot.createParkingLot("0");
         assertEquals(expectedOutput,output.toString());
+
+        //test if create size more than MAX_SIZE
         parking_lot.createParkingLot("2");
         assertEquals(expectedTest,cekSlot(expectedSlot));
     }
@@ -235,20 +237,21 @@ import static org.junit.Assert.*;
 
     public boolean cekSlot(Car expectedSlot[])
     {
-        boolean cek = false;
+        boolean cek = false; //slot not same false 
         for(int i=0; i < expectedSlot.length; i++)
         {
-            if((expectedSlot[i] != null && parking_lot.getSlot().get(i)!=null) || (expectedSlot[i] == null && parking_lot.getSlot().get(i) == null)){
+            //if expectedSlot[i] null and getSlot().get(i) null or  jika expectedSlot[i] is an object and getSlot().get(i) is an object
+            if((expectedSlot[i] != null && parking_lot.getSlot().get(i)!=null) || (expectedSlot[i] ==  parking_lot.getSlot().get(i))){
                 Car car1 = expectedSlot[i];
                 Car car2 = (Car) parking_lot.getSlot().get(i);
-                if(car1 != null && car2 != null){
-                    if(car1.getRegNumber() != car2.getRegNumber() || car1.getColour() != car2.getColour() ){
-                        cek = true;
+                if(car1 != null && car2 != null){ // if car is an object
+                    if(car1.getRegNumber() != car2.getRegNumber() || car1.getColour() != car2.getColour() ){ //if car1 and car2 number colour not same
+                        cek = true; //slot not same true
                     }
                 }
             }
             else {
-                cek = true;
+                cek = true; //slot not same true
             }
         }
         return cek;
