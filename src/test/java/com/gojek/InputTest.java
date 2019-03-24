@@ -125,6 +125,21 @@ public class InputTest
         assertEquals(expectedOutput,output.toString());
     }
 
+    @Test
+    public void testRunCommand()
+    {
+        Input input = new Input();
+
+        //expected
+        String expectedOutput = "invalid input\n"
+                                +"argument not found\n";
+
+        //test
+        input.runCommand("parkss");
+        input.runCommand("park");
+        assertEquals(expectedOutput,output.toString());
+    }
+
     private void provideInput(String data)
     {
         testIn = new ByteArrayInputStream(data.getBytes());

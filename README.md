@@ -28,7 +28,7 @@ In Parking_lot root directory has a bin directory for setup, testing and run the
 - Interactive mode:
 ```./bin/parking_lot```
 
-<b>If executable script not run please input ```command chmod +x [script file]``` in terminal. Then run again</b>
+<b>If executable script not run please input command ```chmod +x [script file]``` in terminal. Then run again</b>
 
 
 ## Command

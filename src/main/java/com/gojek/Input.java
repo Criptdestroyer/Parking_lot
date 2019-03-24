@@ -16,6 +16,11 @@ import java.io.IOException;
     private Parking_lot parking_lot;
     private BufferedReader data;
     
+    public Input()
+    {
+        parking_lot = new Parking_lot();
+    }
+
     public Input(String argument)
     {
         this.argument = argument;
@@ -89,31 +94,37 @@ import java.io.IOException;
     public void runCommand(String command)
     {
         String splitCommand[] = command.split(" "); //split command and the arguments
-        switch(splitCommand[0])
-        {
-            case "create_parking_lot":
-                parking_lot.createParkingLot(splitCommand[1]);
-                break;
-            case "park":
-                parking_lot.parkCar(splitCommand[1],splitCommand[2]);
-                break;
-            case "leave":
-                parking_lot.leavePark(splitCommand[1]);
-                break;
-            case "status":
-                parking_lot.cekStatus();
-                break;
-            case "registration_numbers_for_cars_with_colour":
-                parking_lot.cekRegistrationNumberWithColour(splitCommand[1]);
-                break;
-            case "slot_numbers_for_cars_with_colour" :
-                parking_lot.cekSlotNumberWithColour(splitCommand[1]);
-                break;  
-            case "slot_number_for_registration_number" :
-                parking_lot.cekSlotNumberWithRegistrationNumber(splitCommand[1]);
-                break;   
-            default:
-                System.out.println("invalid input");        
+        try{
+            switch(splitCommand[0])
+            {
+                case "create_parking_lot":
+                    parking_lot.createParkingLot(splitCommand[1]);
+                    break;
+                case "park":
+                    parking_lot.parkCar(splitCommand[1],splitCommand[2]);
+                    break;
+                case "leave":
+                    parking_lot.leavePark(splitCommand[1]);
+                    break;
+                case "status":
+                    parking_lot.cekStatus();
+                    break;
+                case "registration_numbers_for_cars_with_colour":
+                    parking_lot.cekRegistrationNumberWithColour(splitCommand[1]);
+                    break;
+                case "slot_numbers_for_cars_with_colour" :
+                    parking_lot.cekSlotNumberWithColour(splitCommand[1]);
+                    break;  
+                case "slot_number_for_registration_number" :
+                    parking_lot.cekSlotNumberWithRegistrationNumber(splitCommand[1]);
+                    break;   
+                default:
+                    System.out.println("invalid input");        
+            }
         }
+        catch(Exception e){
+            System.out.println("argument not found"); // if user not input argument
+        }
+        
     }
  }
