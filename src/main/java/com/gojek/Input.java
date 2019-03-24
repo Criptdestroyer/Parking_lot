@@ -53,7 +53,6 @@ import java.io.IOException;
             {
                 String command = data.readLine();
                 if(command.equals("exit")){ // if user input exit
-                    System.out.println("exit the program");
                     next = false; //stop loop
                 }
                 else{

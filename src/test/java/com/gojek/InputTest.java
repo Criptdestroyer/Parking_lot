@@ -97,8 +97,7 @@ public class InputTest
                                 +"KA-01-HH-1234, KA-01-HH-9999, KA-01-P-333\n"
                                 +"1, 2, 4\n"
                                 +"5\n"
-                                +"Not found\n"
-                                +"exit the program\n";
+                                +"Not found\n";
 
         
         //test create parking lot
