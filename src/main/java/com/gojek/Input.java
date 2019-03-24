@@ -13,9 +13,9 @@ import java.io.IOException;
  public class Input
  {
     private String argument;
-    private BufferedReader data;
     private Parking_lot parking_lot;
-
+    private BufferedReader data;
+    
     public Input(String argument)
     {
         this.argument = argument;
@@ -29,28 +29,30 @@ import java.io.IOException;
 
     public void parser() 
     {
+        
         if(argument.equals("iteractive")){
-            iteractiveParse();
+            iteractiveParse(); // if iteractive, use iteractive input method
         }
         else{
-            fileParse(argument);
+            fileParse(argument); // if file, use file input method
         }
     }
 
     public void iteractiveParse()
     {
+
         try{
             data = new BufferedReader(new InputStreamReader(System.in));
             boolean next = true;
             while(next)
             {
                 String command = data.readLine();
-                if(command.equals("exit")){
+                if(command.equals("exit")){ // if user input exit
                     System.out.println("exit the program");
-                    next = false;
+                    next = false; //stop loop
                 }
                 else{
-                    runCommand(command);
+                    runCommand(command); //run command
                 }
             }
         }
@@ -62,6 +64,7 @@ import java.io.IOException;
 
     public void fileParse(String filename)
     {
+        //check file
         try{
             data = new BufferedReader(new FileReader(filename));
         }
@@ -72,9 +75,9 @@ import java.io.IOException;
         
         String command;
         try{
-            while((command = data.readLine()) != null)
+            while((command = data.readLine()) != null) //read string in file until end of file
             {
-                runCommand(command);
+                runCommand(command); //run command
             }
         }
         catch(IOException e){
@@ -85,7 +88,7 @@ import java.io.IOException;
 
     public void runCommand(String command)
     {
-        String splitCommand[] = command.split(" ");
+        String splitCommand[] = command.split(" "); //split command and the arguments
         switch(splitCommand[0])
         {
             case "create_parking_lot":

@@ -24,12 +24,18 @@ public class Parking_lot
     public void createParkingLot(String size)
     {
         int temp = Integer.parseInt(size);
-        for(int i=MAX_SIZE; i<temp; i++)
-        {
-            slot.add(null);
+        if(temp > MAX_SIZE){
+            for(int i=MAX_SIZE; i<temp; i++) //add null to arraylist from MAX_SIZE until New Size
+            {
+                slot.add(null);
+            }
+            MAX_SIZE=temp;
+            System.out.println("Created a parking lot with "+size+" slots");
         }
-        MAX_SIZE=temp;
-        System.out.println("Created a parking lot with "+size+" slots");
+        else{
+            System.out.println("number size must larger than MAX_SIZE");
+        }
+        
     }
 
     public void parkCar(String number, String colour)
