@@ -17,14 +17,13 @@ In Parking_lot root directory has a bin directory for setup, testing and run the
     ```./bin/parking_lot [filename]``` is a executable script for runs the program and takes an input file as an argument
 
 ## Usage
-#### Build
+#### 1. Build
 ```./bin/setup```
-#### Run Ruby functional specs
+#### 2. Run Ruby functional specs
 ```./bin/run_functional_tests```
-#### Run Program
-File input mode:
+#### 3. Run Program
+- File input mode:
 ```./bin/parking_lot file_inputs.txt```
-Interactive mode:
+- Interactive mode:
 ```./bin/parking_lot```
-
-If executable script not run please input ```command chmod +x [script file]``` in terminal. Then run again
+<b>If executable script not run please input ```command chmod +x [script file]``` in terminal. Then run again</b>
