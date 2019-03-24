@@ -24,7 +24,7 @@ public class Parking_lot
     public void createParkingLot(String size)
     {
         int temp = Integer.parseInt(size);
-        if(temp > MAX_SIZE){
+        if(temp > MAX_SIZE){ //if in case user update the max size of parking_lot, user can't update less than MAX_SIZE because can make availble car in slot will delete
             for(int i=MAX_SIZE; i<temp; i++) //add null to arraylist from MAX_SIZE until New Size
             {
                 slot.add(null);
@@ -40,17 +40,18 @@ public class Parking_lot
 
     public void parkCar(String number, String colour)
     {
-        if(cekParkingLot()){
+        if(cekParkingLot()){ //check if parking lot size hasn't been made
             return;
         }
+
         int i = 0;
         boolean setSlot = false;
-        while(i < MAX_SIZE && !setSlot)
+        while(i < MAX_SIZE && !setSlot) //loop until MAX_SIZE and setSlot is true
         {
             if(slot.get(i) == null){
                 Car car = new Car(number,colour);
                 slot.set(i,car);
-                setSlot = true;
+                setSlot = true; //stop loop
                 System.out.println("Allocated slot number: "+(i+1));
             }
             else if(i == MAX_SIZE-1){
@@ -63,16 +64,16 @@ public class Parking_lot
 
     public void leavePark(String numSlot)
     {
-        if(cekParkingLot()){
+        if(cekParkingLot()){ //check if parking lot size hasn't been made
             return;
         }
 
         int num = Integer.parseInt(numSlot)-1;
-        if(num >= 0 && num < MAX_SIZE){
-            if(slot.get(num)==null){
+        if(num >= 0 && num < MAX_SIZE){ //check number slot
+            if(slot.get(num)==null){ // if slot is empty
                 System.out.println("There is no car in slot "+numSlot);
             }
-            else{
+            else{ 
                 slot.set(num,null);
                 System.out.println("Slot number "+numSlot+" is free");
             }
@@ -84,32 +85,32 @@ public class Parking_lot
 
     public void cekStatus()
     {
-        if(cekParkingLot()){
+        if(cekParkingLot()){ //check if parking lot size hasn't been made
             return;
         }
 
         System.out.println("Slot No.    Registration No    Colour");
-        boolean empty = true;
+        boolean empty = true; //if there is no car in parking lot
         for(int i=0; i<MAX_SIZE; i++)
         {
             if(slot.get(i)!=null){
-                empty = false;
+                empty = false; //parking lot have a cars
                 Car carInfo = slot.get(i);
                 System.out.println((i+1)+"           "+ carInfo.getRegNumber() +"      "+ carInfo.getColour());
             }
         }
-        if(empty){
+        if(empty){ 
             System.out.println("           All Slot is free");
         }
     }
 
     public void cekRegistrationNumberWithColour(String colour)
     {
-        if(cekParkingLot()){
+        if(cekParkingLot()){ //check if parking lot size hasn't been made
             return;
         }
 
-        boolean firstString = true;
+        boolean firstString = true; 
         String temp = "";
 
         for(int i=0; i<MAX_SIZE; i++)
@@ -117,9 +118,9 @@ public class Parking_lot
             if(slot.get(i)!=null){
                 Car carInfo = slot.get(i);
                 if(carInfo.getColour().equals(colour)){
-                    if(firstString){
+                    if(firstString){ //if first string is true
                         temp+=carInfo.getRegNumber();
-                        firstString = false;
+                        firstString = false; //firstString is false
                     }
                     else{
                         temp+=", "+carInfo.getRegNumber();
@@ -128,7 +129,7 @@ public class Parking_lot
             }
         }
 
-        if(temp.length()==0){
+        if(temp.length()==0){ //if not found
             System.out.println("Not found");
         }
         else{
@@ -138,7 +139,7 @@ public class Parking_lot
 
     public void cekSlotNumberWithColour(String colour)
     {
-        if(cekParkingLot())
+        if(cekParkingLot()) //check if parking lot size hasn't been made
         {
             return;
         }
@@ -150,9 +151,9 @@ public class Parking_lot
             if(slot.get(i)!=null){
                 Car carInfo = slot.get(i);
                 if(carInfo.getColour().equals(colour)){
-                    if(firstString){
+                    if(firstString){ //if first string is true
                         temp+= (i+1);
-                        firstString = false;
+                        firstString = false; //firstString is false
                     }
                     else{
                         temp+=", "+(i+1);
@@ -160,7 +161,7 @@ public class Parking_lot
                 }
             }
         }
-        if(temp.length()==0){
+        if(temp.length()==0){ //if not found
             System.out.println("Not found");
         }
         else{
@@ -170,7 +171,7 @@ public class Parking_lot
 
     public void cekSlotNumberWithRegistrationNumber(String number)
     {
-        if(cekParkingLot()){
+        if(cekParkingLot()){ //check if parking lot size hasn't been made
             return;
         }
 
@@ -181,9 +182,9 @@ public class Parking_lot
             if(slot.get(i)!=null){
                 Car carInfo = slot.get(i);
                 if(carInfo.getRegNumber().equals(number)){
-                    if(firstString){
+                    if(firstString){  //if first string is true
                         temp+= (i+1);
-                        firstString = false;
+                        firstString = false; //firstString is false
                     }
                     else{
                         temp+=", "+(i+1);
@@ -192,7 +193,7 @@ public class Parking_lot
             }
         }
         
-        if(temp.length()==0){
+        if(temp.length()==0){ //if not found
             System.out.println("Not found");
         }
         else{

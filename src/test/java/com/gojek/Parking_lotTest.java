@@ -34,21 +34,22 @@ import static org.junit.Assert.*;
     public void createParkingLotTest()
     {
         //expected
-        int expectedMaxSize = 2;
-        int expectedSlotSize = 2;
+        int expectedMaxSize = 1;
+        int expectedSlotSize = 1;
         Car expectedSlot[] = {null,null};
         boolean expectedTest = false;
-        String expectedOutput = "Created a parking lot with 2 slots\n"
+        String expectedOutput = "Created a parking lot with 1 slots\n"
                                 +"number size must larger than MAX_SIZE\n";
 
         //call function
-        parking_lot.createParkingLot("2");
+        parking_lot.createParkingLot("1");
 
         //test
         assertEquals(expectedMaxSize, parking_lot.getMaxSize());
         assertEquals(expectedSlotSize, parking_lot.getSlot().size());
-        parking_lot.createParkingLot("1");
+        parking_lot.createParkingLot("0");
         assertEquals(expectedOutput,output.toString());
+        parking_lot.createParkingLot("2");
         assertEquals(expectedTest,cekSlot(expectedSlot));
     }
 
